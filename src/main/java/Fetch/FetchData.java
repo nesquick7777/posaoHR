@@ -26,17 +26,21 @@ public class FetchData {
         System.out.println("hello");
         
         try {
-            Document doc = Jsoup.connect("https://www.posao.hr/poslovi/izraz/java/").userAgent("Mozilla/5.0").get();
-            Elements temp=doc.select("jobs_about_p jobs_about_right");
+            Document doc = Jsoup.connect("https://www.posao.hr/oglasi/angular-frontend-developer-m-z/703458/").userAgent("Mozilla/5.0").get();
+           // System.out.println(doc.body());
             
-            int i =0;
+            Elements temp=doc.select(".jobs_about_p, .jobs_about_right ");
+            System.out.println(temp.size());
+         
             for(Element posao:temp){
-         i++;
-                System.out.println(i + " " + posao.getElementsByTag("b").first().text());
+         
+                System.out.println(posao.text());
             }
             
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        System.out.println("čđčšćđĐĆŽŠČĆž");
     }
 }
